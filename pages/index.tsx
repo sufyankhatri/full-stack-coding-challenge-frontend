@@ -7,7 +7,7 @@ import useApiData from '../hooks/use-api-data'
 import Airport from '../types/airport'
 
 const Page: NextPage = () => {
-  const [query, setQuery] = useState<string>(`search=''&page=1&limit=6100`)
+  const [query, setQuery] = useState<string>(`search=&page=1&limit=6100`)
 
   const airports = useApiData<Airport[]>(`/api/airports/${query}`, [], [query])
 
