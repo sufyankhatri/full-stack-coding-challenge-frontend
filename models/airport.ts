@@ -14,6 +14,9 @@ export const searchAirports = async (
   page: number = 1,
   limit: number = 50
 ): Promise<Airport[]> => {
+  console.log('query', query)
+  console.log('page', page)
+  console.log('limit', limit)
   const regex = new RegExp(query, 'i')
 
   const filteredAirports = airports.filter(
@@ -24,8 +27,7 @@ export const searchAirports = async (
       regex.test(airport.country)
   )
 
-  const startIndex = (page - 1) * limit
+  const startIndex = 0
   const endIndex = startIndex + limit
-
   return filteredAirports.slice(startIndex, endIndex)
 }
